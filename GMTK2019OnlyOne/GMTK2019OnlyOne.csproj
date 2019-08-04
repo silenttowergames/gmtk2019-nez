@@ -65,6 +65,7 @@
     <Compile Include="ECS\Components\PlayerMovementComponent.cs" />
     <Compile Include="ECS\Entities\EntityFactory.cs" />
     <Compile Include="ECS\Systems\BurningSystem.cs" />
+    <Compile Include="Scenes\CreditsScene.cs" />
     <Compile Include="ECS\Systems\FireSystem.cs" />
     <Compile Include="ECS\Systems\HUDPositionSystem.cs" />
     <Compile Include="ECS\Systems\ItemPickupSystem.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Scenes\GameplayScene.cs" />
     <Compile Include="Scenes\Level1Scene.cs" />
     <Compile Include="Scenes\Level2Scene.cs" />
+    <Compile Include="Scenes\TitleScene.cs" />
     <Compile Include="Timer.cs" />
   </ItemGroup>
   <ItemGroup>

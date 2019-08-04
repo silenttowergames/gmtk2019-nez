@@ -16,6 +16,24 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin coin.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:coin.wav
+
+#begin donate.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:donate.wav
+
+#begin fire.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:fire.wav
+
 #begin level1.tmx
 /importer:TiledMapImporter
 /processor:TiledMapProcessor

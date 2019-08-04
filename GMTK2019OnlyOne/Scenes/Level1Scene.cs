@@ -53,7 +53,7 @@ namespace GMTK2019OnlyOne.Scenes
             EntityFactory.Wood(new Vector2(17 * 8, 10 * 8));
 
             // Exit
-            EntityFactory.Door(new Vector2(3 * 8, 10 * 8), (DoorComponent D) => { Core.scene = new GameplayScene(); }, true);
+            EntityFactory.Door(new Vector2(3 * 8, 10 * 8), (DoorComponent D) => { Core.scene = new Level2Scene(); }, true);
 
             // Merchant
             EntityFactory.Merchant(new Vector2(23 * 8, 4 * 8), 1, () =>

@@ -25,7 +25,7 @@ namespace GMTK2019OnlyOne.Scenes
             ScreenTitle
         ;
 
-        public Timer IntroTimer = new Timer(90);
+        public Timer IntroTimer = new Timer(100);
 
         public override void initialize()
         {
