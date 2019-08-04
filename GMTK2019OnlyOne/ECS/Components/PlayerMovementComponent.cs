@@ -3,6 +3,7 @@ using GMTK2019OnlyOne.ECS.Systems;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Nez;
+using Nez.Sprites;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,6 +65,7 @@ namespace GMTK2019OnlyOne.ECS.Components
                 {
                     ItemPickupSystem.EmptyItem.Item = ItemPickupSystem.Item;
                     ItemPickupSystem.EmptyItem.entity.position = entity.position;
+                    ItemPickupSystem.EmptyItem.entity.addComponent(Animations.GetItemSprite(ItemPickupSystem.Item));
                 }
 
                 ItemPickupSystem.Item = Items.None;

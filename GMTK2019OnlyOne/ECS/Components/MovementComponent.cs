@@ -12,7 +12,7 @@ namespace GMTK2019OnlyOne.ECS.Components
 {
     public class MovementComponent : Component, IUpdatable
     {
-        public void update()
+        public virtual void update()
         {
             HealthComponent H = entity.getComponent<HealthComponent>();
             Sprite<Animation> S = entity.getComponent<Sprite<Animation>>();

@@ -42,9 +42,22 @@ namespace GMTK2019OnlyOne.ECS.Entities
             A.addAnimation(Animation.Dead, Animations.GetAnimation(Assets.Sprites["onlyone"], new Vector2(3, 3)));
             A.play(Animation.Idle);
 
-            Entity E = Create(Position, A, new PlayerMovementComponent(Position), new BoxCollider(), new HealthComponent());
+            Entity E = Create(Position, A, new BoxCollider(), new HealthComponent(), new PlayerMovementComponent(Position));
 
             E.name = "player";
+
+            return E;
+        }
+
+        public static Entity Enemy()
+        {
+            Sprite<Animation> A = new Sprite<Animation>();
+            A.addAnimation(Animation.Idle, Animations.GetAnimation(Assets.Sprites["onlyone"], new Vector2(3, 1)));
+            A.play(Animation.Idle);
+
+            Entity E = Create(new Vector2(), A, new BoxCollider(), new HealthComponent(), new KillerMovementComponent());
+
+            E.name = "killer";
 
             return E;
         }
@@ -143,7 +156,7 @@ namespace GMTK2019OnlyOne.ECS.Entities
         {
             Vector2 Pos = new Vector2(4, 4);
 
-            Entity E = Create(Pos, Animations.GetItemSprite(Items.None), new Text(Assets.NFonts["PressStart2P"], "-", new Vector2(8, -4), Color.White), new HUDPositionComponent(Pos));
+            Entity E = Create(Pos, Animations.GetItemSprite(Items.None), new Text(Assets.NFonts["PressStart2P"], "None", new Vector2(8, -4), Color.White), new HUDPositionComponent(Pos));
 
             E.name = "huditem";
 

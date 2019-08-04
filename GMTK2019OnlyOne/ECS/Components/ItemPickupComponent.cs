@@ -39,14 +39,15 @@ namespace GMTK2019OnlyOne.ECS.Components
                 return;
             }
 
-            S.play(Item);
-            
             S.enabled = Item != Items.None;
 
-            if (!S.enabled)
+            if (Item == Items.None)
             {
                 ItemPickupSystem.EmptyItem = this;
+                S.removeComponent();
             }
+
+            S.play(Item);
         }
     }
 }

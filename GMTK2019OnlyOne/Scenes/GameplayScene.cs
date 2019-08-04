@@ -61,6 +61,7 @@ namespace GMTK2019OnlyOne.Scenes
             }, true);
 
             Player = EntityFactory.Player(new Vector2(24));
+            EntityFactory.Enemy();
             EntityFactory.FireBowl(new Vector2(16));
 
             EntityFactory.Item(new Vector2(48, 128), Items.Key);
@@ -85,4 +86,3 @@ namespace GMTK2019OnlyOne.Scenes
         }
     }
 }
-
