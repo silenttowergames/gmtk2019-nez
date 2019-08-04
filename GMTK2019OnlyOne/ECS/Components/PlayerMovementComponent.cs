@@ -47,13 +47,6 @@ namespace GMTK2019OnlyOne.ECS.Components
                 Delta -= new Vector2(0, 8);
             }
 
-            if (Input.isKeyPressed(Keys.Space))
-            {
-                HealthComponent H = entity.getComponent<HealthComponent>();
-
-                H.Hurt();
-            }
-
             return Delta;
         }
 

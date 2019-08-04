@@ -198,15 +198,9 @@ namespace GMTK2019OnlyOne.ECS.Entities
 
         public static Entity HUDHealth()
         {
-            Sprite<HP> S = new Sprite<HP>();
-            S.addAnimation(HP.Alive, Animations.GetAnimation(Assets.Sprites["onlyone"], new Vector2(6, 0)));
-            S.addAnimation(HP.Dead, Animations.GetAnimation(Assets.Sprites["onlyone"], new Vector2(6, 1)));
-            S.play(HP.Alive);
-            S.layerDepth = 0.1f;
-
             Vector2 Pos = new Vector2(Core.scene.sceneRenderTargetSize.X - 4, 4);
 
-            Entity E = Create(Pos, new HUDCoinsComponent(), S, new HUDPositionComponent(Pos));
+            Entity E = Create(Pos, new HUDCoinsComponent(), new HUDPositionComponent(Pos));
 
             E.name = "hudhealth";
 

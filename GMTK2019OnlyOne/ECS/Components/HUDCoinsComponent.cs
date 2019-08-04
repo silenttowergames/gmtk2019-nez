@@ -23,23 +23,24 @@ namespace GMTK2019OnlyOne.ECS.Components
         {
             S = new Sprite<Animation>();
             S.addAnimation(Animation.Idle, Animations.GetAnimation(Assets.Sprites["onlyone"], new Vector2(7, 0), new Vector2(7, 1)));
-            S.play(Animation.Idle);
             S.layerDepth = 0.1f;
-            entity.addComponent(S);
+            S.entity = entity;
         }
 
         public override void render(Graphics graphics, Camera camera)
         {
             GameplayScene Sc = (GameplayScene)Core.scene;
 
-            if (Sc != null && !Sc.IntroTimer.IsFinished())
+            if (ItemPickupSystem.Money <= 0 || Sc != null && !Sc.IntroTimer.IsFinished())
             {
                 return;
             }
 
-            S.localOffset = new Vector2();
+            S.play(Animation.Idle);
 
-            for(int Amount = 0; Amount < ItemPickupSystem.Money; Amount++)
+            S.localOffset = new Vector2(8, 0);
+
+            for (int Amount = 0; Amount < ItemPickupSystem.Money; Amount++)
             {
                 S.localOffset -= new Vector2(8, 0);
 
