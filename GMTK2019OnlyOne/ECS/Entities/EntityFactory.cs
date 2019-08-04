@@ -41,6 +41,7 @@ namespace GMTK2019OnlyOne.ECS.Entities
             A.addAnimation(Animation.Idle, Animations.GetAnimation(Assets.Sprites["onlyone"], new Vector2(3, 2)));
             A.addAnimation(Animation.Dead, Animations.GetAnimation(Assets.Sprites["onlyone"], new Vector2(3, 3)));
             A.play(Animation.Idle);
+            A.layerDepth = 0.1f;
 
             Entity E = Create(Position, A, new BoxCollider(), new HealthComponent(), new PlayerMovementComponent(Position));
 
@@ -62,7 +63,7 @@ namespace GMTK2019OnlyOne.ECS.Entities
             return E;
         }
 
-        public static Entity Merchant(Vector2 Position, int Cost, Action OnBuy)
+        public static Entity Merchant(Vector2 Position, int Cost, Action OnBuy = null)
         {
             Sprite<Animation> A = new Sprite<Animation>();
             A.addAnimation(Animation.Idle, Animations.GetAnimation(Assets.Sprites["onlyone"], new Vector2(7, 3)));
@@ -81,6 +82,7 @@ namespace GMTK2019OnlyOne.ECS.Entities
             A.addAnimation(Animation.Idle, Animations.GetAnimation(Assets.Sprites["onlyone"], new Vector2(0, 3)));
             A.addAnimation(Animation.Locked, Animations.GetAnimation(Assets.Sprites["onlyone"], new Vector2(1, 3)));
             A.play(Locked ? Animation.Locked : Animation.Idle);
+            A.layerDepth = 0.1f;
 
             Entity E = Create(Position, A, new BoxCollider(), new DoorComponent(OnEnter, Locked));
 
@@ -92,6 +94,7 @@ namespace GMTK2019OnlyOne.ECS.Entities
             Sprite<Animation> A = new Sprite<Animation>();
             A.addAnimation(Animation.Idle, Animations.GetAnimation(Assets.Sprites["onlyone"], new Vector2(4, 0), new Vector2(4, 1)));
             A.play(Animation.Idle);
+            A.layerDepth = 0.1f;
 
             return Create(Position, A, new BoxCollider(), new FireLightComponent());
         }
@@ -109,7 +112,10 @@ namespace GMTK2019OnlyOne.ECS.Entities
 
         public static Entity TextWriter(Vector2 Position, string Text, string Name = "")
         {
-            Entity E = Create(Position, new Text(Assets.NFonts["PressStart2P"], Text, new Vector2(-4), Color.White));
+            Text TextComp = new Text(Assets.NFonts["PressStart2P"], Text, new Vector2(-4), Color.White);
+            TextComp.horizontalOrigin = HorizontalAlign.Center;
+
+            Entity E = Create(Position + new Vector2(Core.scene.sceneRenderTargetSize.X / 2, 0), TextComp);
 
             if(Name != "")
             {
@@ -137,6 +143,7 @@ namespace GMTK2019OnlyOne.ECS.Entities
             Sprite<Animation> A = new Sprite<Animation>();
             A.addAnimation(Animation.Idle, Animations.GetAnimation(Assets.Sprites["onlyone"], new Vector2(2, 3)));
             A.play(Animation.Idle);
+            A.layerDepth = 0.1f;
 
             Entity E = Create(Position, A, new BurningComponent(OnBurn, true), new BoxCollider());
 
@@ -156,11 +163,33 @@ namespace GMTK2019OnlyOne.ECS.Entities
             return E;
         }
 
+        public static Entity IntroCard(string Title)
+        {
+            Text T = new Text(Assets.NFonts["PressStart2P"], Title, new Vector2((Core.scene.sceneRenderTargetSize.X - 8) / 2, 16), Color.White);
+            T.horizontalOrigin = HorizontalAlign.Center;
+            T.layerDepth = 0;
+
+            BlackoutComponent B = new BlackoutComponent();
+            B.layerDepth = 0.05f;
+
+            Entity E = Create(new Vector2(), B, T);
+
+            E.name = "intro-card";
+
+            return E;
+        }
+
         public static Entity HUDItem()
         {
             Vector2 Pos = new Vector2(4, 4);
 
-            Entity E = Create(Pos, Animations.GetItemSprite(Items.None), new Text(Assets.NFonts["PressStart2P"], "None", new Vector2(8, -4), Color.White), new HUDPositionComponent(Pos));
+            Sprite<Items> A = Animations.GetItemSprite(Items.None);
+            A.layerDepth = 0.1f;
+
+            Text T = new Text(Assets.NFonts["PressStart2P"], "None", new Vector2(8, -4), Color.White);
+            T.layerDepth = 0.1f;
+
+            Entity E = Create(Pos, A, T, new HUDPositionComponent(Pos));
 
             E.name = "huditem";
 
@@ -173,10 +202,11 @@ namespace GMTK2019OnlyOne.ECS.Entities
             S.addAnimation(HP.Alive, Animations.GetAnimation(Assets.Sprites["onlyone"], new Vector2(6, 0)));
             S.addAnimation(HP.Dead, Animations.GetAnimation(Assets.Sprites["onlyone"], new Vector2(6, 1)));
             S.play(HP.Alive);
+            S.layerDepth = 0.1f;
 
             Vector2 Pos = new Vector2(Core.scene.sceneRenderTargetSize.X - 4, 4);
 
-            Entity E = Create(Pos, S, new HUDPositionComponent(Pos), new HUDCoinsComponent());
+            Entity E = Create(Pos, new HUDCoinsComponent(), S, new HUDPositionComponent(Pos));
 
             E.name = "hudhealth";
 

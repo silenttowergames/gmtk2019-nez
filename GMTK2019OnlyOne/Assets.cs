@@ -37,6 +37,7 @@ namespace GMTK2019OnlyOne
             Maps = LoadList<TiledMap>(new string[]
             {
                 "test-map",
+                "level1",
             });
 
             Fonts = LoadList<SpriteFont>(new string[]

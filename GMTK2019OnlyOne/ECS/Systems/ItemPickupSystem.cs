@@ -25,7 +25,7 @@ namespace GMTK2019OnlyOne.ECS.Systems
         public static ItemPickupComponent EmptyItem = null;
 
         public static int
-            Money = 2,
+            Money = 0,
             Modifier = 0,
             TotalDonations = 0
         ;

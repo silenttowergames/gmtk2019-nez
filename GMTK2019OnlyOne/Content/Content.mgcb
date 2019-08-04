@@ -16,6 +16,11 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin level1.tmx
+/importer:TiledMapImporter
+/processor:TiledMapProcessor
+/build:level1.tmx
+
 #begin onlyone.png
 /importer:TextureImporter
 /processor:TextureProcessor

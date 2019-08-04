@@ -1,4 +1,5 @@
 ﻿using GMTK2019OnlyOne.ECS.Systems;
+using GMTK2019OnlyOne.Scenes;
 using Microsoft.Xna.Framework;
 using Nez;
 using Nez.Sprites;
@@ -23,11 +24,19 @@ namespace GMTK2019OnlyOne.ECS.Components
             S = new Sprite<Animation>();
             S.addAnimation(Animation.Idle, Animations.GetAnimation(Assets.Sprites["onlyone"], new Vector2(7, 0), new Vector2(7, 1)));
             S.play(Animation.Idle);
+            S.layerDepth = 0.1f;
             entity.addComponent(S);
         }
 
         public override void render(Graphics graphics, Camera camera)
         {
+            GameplayScene Sc = (GameplayScene)Core.scene;
+
+            if (Sc != null && !Sc.IntroTimer.IsFinished())
+            {
+                return;
+            }
+
             S.localOffset = new Vector2();
 
             for(int Amount = 0; Amount < ItemPickupSystem.Money; Amount++)
