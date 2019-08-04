@@ -1,0 +1,42 @@
+
+#----------------------------- Global Properties ----------------------------#
+
+/outputDir:bin/$(Platform)
+/intermediateDir:obj/$(Platform)
+/platform:DesktopGL
+/config:
+/profile:HiDef
+/compress:False
+
+#-------------------------------- References --------------------------------#
+
+/reference:..\..\..\_libs\Nez-master\Nez.PipelineImporter\bin\Debug\Ionic.ZLib.dll
+/reference:..\..\..\_libs\Nez-master\Nez.PipelineImporter\bin\Debug\Newtonsoft.Json.dll
+/reference:..\..\..\_libs\Nez-master\Nez.PipelineImporter\bin\Debug\Nez.PipelineImporter.dll
+
+#---------------------------------- Content ---------------------------------#
+
+#begin onlyone.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:onlyone.png
+
+#begin PressStart2P.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:PressStart2P.spritefont
+
+#begin test-map.tmx
+/importer:TiledMapImporter
+/processor:TiledMapProcessor
+/build:test-map.tmx
+
