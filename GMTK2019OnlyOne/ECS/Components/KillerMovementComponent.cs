@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using GMTK2019OnlyOne.ECS.Systems;
+using Microsoft.Xna.Framework;
 using Nez;
 using Nez.AI.Pathfinding;
 using Nez.Tiled;
@@ -44,7 +45,19 @@ namespace GMTK2019OnlyOne.ECS.Components
 
         protected override Vector2 GetDelta()
         {
-            return base.GetDelta();
+            Vector2 Delta = new Vector2();
+
+            if (TimeSystem.Direction == -1)
+            {
+                return Delta;
+            }
+
+            Delta = NextPoint - entity.position;
+
+            Path = null;
+            InitPath();
+
+            return Delta;
         }
 
         public override void update()
@@ -67,9 +80,9 @@ namespace GMTK2019OnlyOne.ECS.Components
                     SpawnSuccess = SpawnOnScreen();
                 }
                 while (!SpawnSuccess);
-
-                Debug.log(entity.position);
             }
+
+            InitPath();
 
             base.update();
         }
@@ -195,7 +208,7 @@ namespace GMTK2019OnlyOne.ECS.Components
                 // If the path is more-or-less empty, make it null, then quit
                 // (The first node is usually useless)
                 // This should never happen
-                if (Path.Count <= 1)
+                if (Path.Count < 1)
                 {
                     ChosenPatrolStalkPoint = null;
 
@@ -219,7 +232,7 @@ namespace GMTK2019OnlyOne.ECS.Components
         {
             Path = graph.search(
                 new Point((int)Math.Floor(entity.position.X / 8), (int)Math.Floor((entity.position.Y + 8) / 8)),
-                new Point((int)Math.Floor(StalkPoint.X / 8), (int)Math.Floor((StalkPoint.Y + 8) / 8))
+                new Point((int)Math.Floor(Player.position.X / 8), (int)Math.Floor((Player.position.Y + 8) / 8))
             );
         }
     }

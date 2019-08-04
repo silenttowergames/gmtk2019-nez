@@ -27,22 +27,22 @@ namespace GMTK2019OnlyOne.ECS.Components
         {
             Vector2 Delta = new Vector2();
 
-            if (Input.isKeyPressed(Keys.Right))
+            if (TimeSystem.Direction == 1)
             {
                 Delta += new Vector2(8, 0);
             }
 
-            if (Input.isKeyPressed(Keys.Left))
+            if (TimeSystem.Direction == 3)
             {
                 Delta -= new Vector2(8, 0);
             }
 
-            if (Input.isKeyPressed(Keys.Down))
+            if (TimeSystem.Direction == 2)
             {
                 Delta += new Vector2(0, 8);
             }
 
-            if (Input.isKeyPressed(Keys.Up))
+            if (TimeSystem.Direction == 0)
             {
                 Delta -= new Vector2(0, 8);
             }

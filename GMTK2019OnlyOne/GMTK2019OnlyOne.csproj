@@ -68,6 +68,7 @@
     <Compile Include="ECS\Systems\HUDPositionSystem.cs" />
     <Compile Include="ECS\Systems\ItemPickupSystem.cs" />
     <Compile Include="ECS\Systems\MoneySystem.cs" />
+    <Compile Include="ECS\Systems\TimeSystem.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Numbers.cs" />
     <Compile Include="Program.cs" />

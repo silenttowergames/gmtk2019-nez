@@ -149,7 +149,11 @@ namespace GMTK2019OnlyOne.ECS.Entities
 
             M.layerDepth = 1;
 
-            return Create(new Vector2(-4), M);
+            Entity E = Create(new Vector2(-4), M);
+
+            E.name = "map";
+
+            return E;
         }
 
         public static Entity HUDItem()

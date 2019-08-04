@@ -77,6 +77,8 @@ namespace GMTK2019OnlyOne.Scenes
 
         public override void update()
         {
+            TimeSystem.update();
+
             base.update();
 
             ItemPickupSystem.Update();
