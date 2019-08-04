@@ -110,7 +110,7 @@ namespace GMTK2019OnlyOne.Scenes
             EntityFactory.Moss(new Vector2(2 * 8, 3 * 8));
             EntityFactory.Moss(new Vector2(1 * 8, 2 * 8), (BurningComponent B) => EntityFactory.Coin(B.entity.position - new Vector2(4)));
 
-            EntityFactory.Door(new Vector2(23 * 8, 1 * 8), (DoorComponent D) => { Core.scene = new Level2Scene(); });
+            EntityFactory.Door(new Vector2(23 * 8, 1 * 8), (DoorComponent D) => { Core.scene = new CreditsScene(); });
 
             // Merchant
             EntityFactory.Merchant(new Vector2(23 * 8, 13 * 8), 1, () =>

@@ -16,6 +16,7 @@ namespace GMTK2019OnlyOne.Scenes
             clearColor = Color.Black;
 
             Entity Title = EntityFactory.TextWriter(new Vector2(0, 16), "Burn Out");
+            Entity Subtitle = EntityFactory.TextWriter(new Vector2(0, 48), "[ Press Enter ]");
 
             base.onStart();
         }
