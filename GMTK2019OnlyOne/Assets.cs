@@ -38,6 +38,7 @@ namespace GMTK2019OnlyOne
             {
                 "test-map",
                 "level1",
+                "level2",
             });
 
             Fonts = LoadList<SpriteFont>(new string[]

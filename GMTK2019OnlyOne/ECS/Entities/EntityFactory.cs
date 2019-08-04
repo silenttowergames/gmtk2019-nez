@@ -163,9 +163,14 @@ namespace GMTK2019OnlyOne.ECS.Entities
             return E;
         }
 
-        public static Entity IntroCard(string Title)
+        public static Entity IntroCard(string Title, Vector2 Position)
         {
-            Text T = new Text(Assets.NFonts["PressStart2P"], Title, new Vector2((Core.scene.sceneRenderTargetSize.X - 8) / 2, 16), Color.White);
+            Position = new Vector2(
+                Position.X - (Position.X % Core.scene.sceneRenderTargetSize.X),
+                Position.Y - (Position.Y % Core.scene.sceneRenderTargetSize.Y)
+            );
+
+            Text T = new Text(Assets.NFonts["PressStart2P"], Title, Position + new Vector2((Core.scene.sceneRenderTargetSize.X - 8) / 2, 16), Color.White);
             T.horizontalOrigin = HorizontalAlign.Center;
             T.layerDepth = 0;
 

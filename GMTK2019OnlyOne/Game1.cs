@@ -40,7 +40,7 @@ namespace GMTK2019OnlyOne
 
             Scene.setDefaultDesignResolution(128, 72, Scene.SceneResolutionPolicy.ExactFit);
 
-            scene = new Level1Scene();
+            scene = new Level2Scene();
         }
 
         /// <summary>

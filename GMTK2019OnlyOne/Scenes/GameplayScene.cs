@@ -50,7 +50,7 @@ namespace GMTK2019OnlyOne.Scenes
                 camera.addComponent(new CameraFollowComponent(Player));
             }
 
-            IntroCard = EntityFactory.IntroCard(ScreenTitle);
+            IntroCard = EntityFactory.IntroCard(ScreenTitle, Player.position);
         }
 
         protected virtual void AddUniqueObjects()

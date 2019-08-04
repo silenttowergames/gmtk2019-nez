@@ -18,8 +18,8 @@ namespace GMTK2019OnlyOne.ECS.Components
         {
             graphics.batcher.drawRect(
                 new RectangleF(
-                    -1,
-                    -1,
+                    (Core.scene.camera.position.X - (Core.scene.sceneRenderTargetSize.X / 2)) - 1,
+                    (Core.scene.camera.position.Y - (Core.scene.sceneRenderTargetSize.Y / 2)) - 1,
                     Core.scene.sceneRenderTargetSize.X + 1,
                     Core.scene.sceneRenderTargetSize.Y + 1
                 ),
