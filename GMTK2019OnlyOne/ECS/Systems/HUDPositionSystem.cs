@@ -38,8 +38,6 @@ namespace GMTK2019OnlyOne.ECS.Systems
         {
             Entity U = Core.scene.findEntity("huditem");
 
-            Debug.log(U.position);
-
             foreach(HUDPositionComponent H in Components)
             {
                 H.entity.position = H.OrigPos + Core.scene.camera.position - (Core.scene.sceneRenderTargetSize.ToVector2() / 2);
